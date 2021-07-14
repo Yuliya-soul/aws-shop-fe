@@ -29,6 +29,7 @@ function App() {
             <Route exact path="/cart">
               <PageCart />
             </Route>
+         
             <Route exact path="/admin/orders">
               <PageOrders />
             </Route>

@@ -12,6 +12,7 @@ import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
 import API_PATHS from "constants/apiPaths";
 //import productList from "./productList.json";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -37,7 +38,7 @@ export default function Products() {
 
   useEffect(() => {
     axios.get(`${API_PATHS.bff}products/`)
-     .then(res => {setProducts(res.data);console.log(res.data)});
+     .then(res => setProducts(res.data));
   //  setProducts(productList);
   }, [])
 
@@ -49,8 +50,7 @@ export default function Products() {
             <CardMedia
               className={classes.cardMedia}
               image={`${product.picture}`}
-            //  image={`https://source.unsplash.com/random?sig=${index}`}
-          
+                
               title={product.title}
             />
             <CardContent className={classes.cardContent}>
@@ -62,9 +62,13 @@ export default function Products() {
               </Typography>
               <Typography>
                 {product.author} 
+               </Typography>
+              <Typography>
+
               </Typography>
               <Typography>
                 {formatAsPrice(product.price)}
+
               </Typography>
             </CardContent>
             <CardActions>
