@@ -9,10 +9,11 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-import axios from 'axios';
-import API_PATHS from "constants/apiPaths";
-//import productList from "./productList.json";
-import { Link } from 'react-router-dom';
+//import axios from 'axios';
+//import API_PATHS from "constants/apiPaths";
+import productList from "./productList.json";
+
+import OpenCardinfo from 'components/OpenCardInfo/OpenCardinfo';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -37,9 +38,9 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    axios.get(`${API_PATHS.bff}products/`)
-     .then(res => setProducts(res.data));
-  //  setProducts(productList);
+   // axios.get(`${API_PATHS.bff}products/`)
+   //  .then(res => setProducts(res.data));
+    setProducts(productList);
   }, [])
 
   return (
@@ -64,7 +65,7 @@ export default function Products() {
                 {product.author} 
                </Typography>
               <Typography>
-
+              <OpenCardinfo product={product}/>
               </Typography>
               <Typography>
                 {formatAsPrice(product.price)}
