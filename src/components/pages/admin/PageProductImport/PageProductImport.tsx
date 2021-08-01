@@ -19,9 +19,24 @@ export default function PageProductImport() {
   return (
     <div className={classes.content}>
       <Box display="flex" alignItems="center">
-        <CSVFileImport url={`${API_PATHS.import}/import`} title="Import Products CSV"/>
+        <CSVFileImport url={`${API_PATHS.import}post/products`} title="Import Products CSV"/>
         <Button size="small" color="primary" variant="contained" component={Link} to={'/admin/product-form/'}>
           create product
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            console.log(
+              `${fetch(
+                `${API_PATHS.import}post/products`
+              )
+                .then((response) => response.json())
+                .then((item) => alert(item.title))}`
+            );
+          }}
+        >
+          create book lesson 4
         </Button>
       </Box>
       <ProductsTable/>
