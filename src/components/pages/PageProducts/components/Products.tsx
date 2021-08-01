@@ -11,7 +11,7 @@ import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
 import API_PATHS from "constants/apiPaths";
-//import productList from "./productList.json";
+
 
 import OpenCardinfo from 'components/OpenCardInfo/OpenCardinfo';
 
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    paddingTop: '150.25%', // 16:9
+    paddingTop: '150.25%', 
   },
   cardContent: {
     flexGrow: 1,
@@ -40,7 +40,7 @@ export default function Products() {
   useEffect(() => {
     axios.get(`${API_PATHS.bff}products/`)
      .then(res => setProducts(res.data));
-    //setProducts(productList);
+
   }, [])
 
   return (

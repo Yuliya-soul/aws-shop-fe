@@ -2,10 +2,10 @@
 #
 # Happy Coding!
 
-service: aws-task--3
+service: aws-4fe
 # app and org for use with dashboard.serverless.com
-#app: your-app-name
-#org: your-org-name
+app: product-service
+
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -24,7 +24,7 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: aws-task--3
+    bucketName:  aws-4fe
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
