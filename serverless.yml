@@ -2,7 +2,7 @@
 #
 # Happy Coding!
 
-service: aws-4fe
+service: aws-7fe
 # app and org for use with dashboard.serverless.com
 app: product-service
 
@@ -20,11 +20,12 @@ provider:
 plugins:
   - serverless-finch
   - serverless-single-page-app-plugin
+  - serverless-dotenv-plugin
 
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName:  aws-4fe
+    bucketName:  aws-7fe
     distributionFolder: build
     indexDocument: index.html
     manageResources: false

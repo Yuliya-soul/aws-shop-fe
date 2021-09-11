@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PageProductImport() {
   const classes = useStyles();
-
+  localStorage.setItem('authorization_token',`${process.env.MY_SECRET_KEY}`);
   return (
     <div className={classes.content}>
       <Box display="flex" alignItems="center">

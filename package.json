@@ -33,6 +33,7 @@
     "@unitsix/serverless-spa-plugin": "^0.0.1",
     "axios": "^0.21.1",
     "chokidar": "^3.5.2",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -53,7 +54,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless-dotenv-plugin": "^3.9.0"
   },
   "eslintConfig": {
     "extends": "react-app"

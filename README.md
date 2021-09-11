@@ -1,3 +1,3 @@
-CloudFront Distribution: https://d1h1xs6wogqizv.cloudfront.net/
+CloudFront Distribution:https://d3hzy7osffhiya.cloudfront.net/
 
 
