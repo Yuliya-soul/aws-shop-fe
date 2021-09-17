@@ -35,8 +35,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
       method: "GET",
       url,
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": `Basic ${localStorage.getItem("authorization_token")}`,
+        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
       },
       params: {
         name: encodeURIComponent(file.name),
@@ -46,10 +45,6 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     console.log("Uploading to: ", response.data);
     const result = await fetch(response.data, {
       method: "PUT",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
-      },
       body: file,
     });
     console.log("Result: ", result);
