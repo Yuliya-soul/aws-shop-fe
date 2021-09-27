@@ -1,28 +1,31 @@
-import React, {useEffect, useState} from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import {Product} from "models/Product";
-import {formatAsPrice} from "utils/utils";
+import React, { useEffect, useState } from "react";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { Product } from "models/Product";
+import { formatAsPrice } from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-import axios from 'axios';
+import axios from "axios";
 import API_PATHS from "constants/apiPaths";
 
-
-import OpenCardinfo from 'components/OpenCardInfo/OpenCardinfo';
+import OpenCardinfo from "components/OpenCardInfo/OpenCardinfo";
+localStorage.setItem(
+  "authorization_token",
+  `WVVMSVlBX1NPVUw6VEVTVF9QQVNTV09SRA==`
+);
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
   cardMedia: {
-    paddingTop: '150.25%', 
+    paddingTop: "150.25%",
   },
   cardContent: {
     flexGrow: 1,
@@ -38,10 +41,10 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    axios.get(`${API_PATHS.bff}products/`)
-     .then(res => setProducts(res.data));
-
-  }, [])
+    axios
+      .get(`${API_PATHS.bff}/products/`)
+      .then((res) => setProducts(res.data));
+  }, []);
 
   return (
     <Grid container spacing={4}>
@@ -51,29 +54,21 @@ export default function Products() {
             <CardMedia
               className={classes.cardMedia}
               image={`${product.picture}`}
-                
               title={product.title}
             />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
                 {product.title}
               </Typography>
+              <Typography>{product.year}</Typography>
+              <Typography>{product.author}</Typography>
               <Typography>
-                {product.year} 
+                <OpenCardinfo product={product} />
               </Typography>
-              <Typography>
-                {product.author} 
-               </Typography>
-              <Typography>
-              <OpenCardinfo product={product}/>
-              </Typography>
-              <Typography>
-                {formatAsPrice(product.price)}
-
-              </Typography>
+              <Typography>{formatAsPrice(product.price)}</Typography>
             </CardContent>
             <CardActions>
-              <AddProductToCart product={product}/>
+              <AddProductToCart product={product} />
             </CardActions>
           </Card>
         </Grid>
