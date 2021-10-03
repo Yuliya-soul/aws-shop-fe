@@ -13,10 +13,6 @@ import axios from "axios";
 import API_PATHS from "constants/apiPaths";
 
 import OpenCardinfo from "components/OpenCardInfo/OpenCardinfo";
-localStorage.setItem(
-  "authorization_token",
-  `WVVMSVlBX1NPVUw6VEVTVF9QQVNTV09SRA==`
-);
 
 const useStyles = makeStyles((theme) => ({
   card: {
